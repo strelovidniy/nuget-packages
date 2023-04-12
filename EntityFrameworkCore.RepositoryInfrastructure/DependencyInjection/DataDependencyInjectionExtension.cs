@@ -1,11 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.EntityFrameworkCore.RepositoryInfrastructure.DependencyInjection;
+namespace EntityFrameworkCore.RepositoryInfrastructure.DependencyInjection;
 
 public static class RepositoryInfrastructureDependencyInjectionExtension
 {
-    private static IServiceCollection AddRepository<TEntity>(
+    public static IRepositoryBuilder<TContext> CreateRepositoryBuilderWithContext<TContext>(
         this IServiceCollection services
-    ) where TEntity : class, IEntity =>
-        services.AddTransient<IRepository<TEntity>, Repository<TEntity>>();
+    ) where TContext : DbContext => new RepositoryBuilder<TContext>(services);
 }

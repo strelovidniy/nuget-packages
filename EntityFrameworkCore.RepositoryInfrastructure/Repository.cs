@@ -1,19 +1,21 @@
 ﻿using System.Linq.Expressions;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Microsoft.EntityFrameworkCore.RepositoryInfrastructure;
+namespace EntityFrameworkCore.RepositoryInfrastructure;
 
-internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
+internal class Repository<TContext, TEntity> : IRepository<TEntity>
+    where TEntity : class, IEntity where TContext : DbContext
 {
-    private readonly DbContext _context;
+    private readonly TContext _context;
     private readonly DbSet<TEntity> _dbEntities;
-    private readonly ILogger<Repository<TEntity>> _logger;
+    private readonly ILogger<Repository<TContext, TEntity>> _logger;
 
     public Repository(
-        DbContext context,
-        ILogger<Repository<TEntity>> logger
+        TContext context,
+        ILogger<Repository<TContext, TEntity>> logger
     )
     {
         _context = context;
@@ -62,8 +64,6 @@ internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class,
     public async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         CheckEntityForNull(entity);
-
-        entity.CreatedAt = DateTime.UtcNow;
 
         _logger.LogTrace(
             "Adding entity\n\n{entity}\n",

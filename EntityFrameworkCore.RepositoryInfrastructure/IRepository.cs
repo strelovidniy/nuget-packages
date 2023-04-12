@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
 
-namespace Microsoft.EntityFrameworkCore.RepositoryInfrastructure;
+namespace EntityFrameworkCore.RepositoryInfrastructure;
 
-public interface IRepository<TEntity> where TEntity : IEntity
+public interface IRepository<TEntity> where TEntity : class, IEntity
 {
     /// <summary>
     ///     Gets all entity records with included entities as no tracking list.

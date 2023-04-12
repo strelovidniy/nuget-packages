@@ -14,13 +14,13 @@
 		<PackageId>EntityFrameworkCore.RepositoryInfrastructure</PackageId>
 		<RootNamespace>EntityFrameworkCore.RepositoryInfrastructure</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>7.0.4</Version>
+		<Version>7.0.8</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>EntityFrameworkCore.RepositoryInfrastructure</Title>
 		<PackageTags>EF; Core; Repository; Pattern; Infrastructure; Entity; Framework;</PackageTags>
 		<Description>Repository Pattern for EF Core.</Description>
 		<PackageIcon>PackageLogo.png</PackageIcon>
-		<PackageReleaseNotes>Updated to EF Core 7</PackageReleaseNotes>
+		<PackageReleaseNotes>Interface as marker</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
