@@ -301,6 +301,21 @@ internal class Repository<TContext, TEntity> : IRepository<TEntity>
         cancellationToken
     );
 
+    /// <summary>
+    ///     Executes raw SQL query with IQueryable collection return.
+    /// </summary>
+    /// <typeparam name="TResult"></typeparam>
+    /// <param name="sql"></param>
+    /// <param name="parameters"></param>
+    /// <returns>IQueryable</returns>
+    public IQueryable<TResult> FromSqlRawAsync<TResult>(
+        string sql,
+        params object[] parameters
+    ) => _context.Database.SqlQueryRaw<TResult>(
+        sql,
+        parameters
+    );
+
     private static void CheckEntityForNull(TEntity entity)
     {
         if (entity == null)

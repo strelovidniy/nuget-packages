@@ -111,4 +111,16 @@ public interface IRepository<TEntity> where TEntity : class, IEntity
         IEnumerable<object> parameters,
         CancellationToken cancellationToken = default
     );
+
+    /// <summary>
+    ///     Executes raw SQL query with IQueryable collection return.
+    /// </summary>
+    /// <typeparam name="TResult"></typeparam>
+    /// <param name="sql"></param>
+    /// <param name="parameters"></param>
+    /// <returns>IQueryable</returns>
+    public IQueryable<TResult> FromSqlRawAsync<TResult>(
+        string sql,
+        params object[] parameters
+    );
 }
