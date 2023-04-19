@@ -119,7 +119,7 @@ public interface IRepository<TEntity> where TEntity : class, IEntity
     /// <param name="sql"></param>
     /// <param name="parameters"></param>
     /// <returns>IQueryable</returns>
-    public IQueryable<TResult> FromSqlRawAsync<TResult>(
+    public IQueryable<TResult> FromSqlRaw<TResult>(
         string sql,
         params object[] parameters
     );

@@ -308,7 +308,7 @@ internal class Repository<TContext, TEntity> : IRepository<TEntity>
     /// <param name="sql"></param>
     /// <param name="parameters"></param>
     /// <returns>IQueryable</returns>
-    public IQueryable<TResult> FromSqlRawAsync<TResult>(
+    public IQueryable<TResult> FromSqlRaw<TResult>(
         string sql,
         params object[] parameters
     ) => _context.Database.SqlQueryRaw<TResult>(

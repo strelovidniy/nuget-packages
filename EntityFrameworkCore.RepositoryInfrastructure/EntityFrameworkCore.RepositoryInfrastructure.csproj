@@ -14,13 +14,13 @@
 		<PackageId>EntityFrameworkCore.RepositoryInfrastructure</PackageId>
 		<RootNamespace>EntityFrameworkCore.RepositoryInfrastructure</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>7.0.9</Version>
+		<Version>7.1.0</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>EntityFrameworkCore.RepositoryInfrastructure</Title>
 		<PackageTags>EF; Core; Repository; Pattern; Infrastructure; Entity; Framework;</PackageTags>
 		<Description>Repository Pattern for EF Core.</Description>
 		<PackageIcon>PackageLogo.png</PackageIcon>
-		<PackageReleaseNotes>Added FromSqlRaw Method and Updated Dependencies</PackageReleaseNotes>
+		<PackageReleaseNotes>Renamed FromSqlRawAsync to FromSqlRaw</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
