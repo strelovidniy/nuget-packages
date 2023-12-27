@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
 	</ItemGroup>
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<AssemblyName>EntityFrameworkCore.RepositoryInfrastructure</AssemblyName>
 		<PackageId>EntityFrameworkCore.RepositoryInfrastructure</PackageId>
 		<RootNamespace>EntityFrameworkCore.RepositoryInfrastructure</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>7.1.1</Version>
+		<Version>8.0.0</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>EntityFrameworkCore.RepositoryInfrastructure</Title>
 		<PackageTags>EF; Core; Repository; Pattern; Infrastructure; Entity; Framework;</PackageTags>
