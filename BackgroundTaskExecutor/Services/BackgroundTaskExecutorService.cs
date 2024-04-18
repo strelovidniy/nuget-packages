@@ -152,9 +152,7 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
     {
         try
         {
-            await using var scope = _services.CreateAsyncScope();
-
-            await RunJobAsync(options, scope.ServiceProvider, stoppingToken);
+            await RunJobAsync(options, stoppingToken);
         }
         catch (Exception exception)
         {
@@ -166,25 +164,32 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
 
     private async Task RunJobAsync(
         ExecutionOptions options,
-        IServiceProvider serviceProvider,
         CancellationToken stoppingToken
     )
     {
-        _logger.LogInformation("Background task execution started");
+        _logger.LogInformation(
+            "{MethodName} started executing in background",
+            options.MethodInfo.Name
+        );
+
+        await using var scope = _services.CreateAsyncScope();
+
+        var serviceProvider = scope.ServiceProvider;
 
         var backgroundContext = serviceProvider.GetRequiredService<BackgroundContext>();
 
         var syncEntry = await backgroundContext
             .SyncEntries
             .OrderByDescending(syncEntry => syncEntry.LastRun)
-            .Where(syncEntry => syncEntry.TaskName == options.MethodInfo.Name)
+            .Where(syncEntry => syncEntry.TaskName == options.MethodInfo.Name && syncEntry.Profile == options.Profile)
             .FirstOrDefaultAsync(stoppingToken);
 
         if (syncEntry is not null
             && DateTime.UtcNow - syncEntry.LastRun < TimeSpan.FromMinutes(options.Settings.IntervalInMinutes))
         {
             _logger.LogInformation(
-                "Background task executed by another pod | Machine Name {MachineName}",
+                "Background task ({MethodName}) executed by another pod | Machine Name {MachineName}",
+                options.MethodInfo.Name,
                 syncEntry.MachineName
             );
 
@@ -238,11 +243,17 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
                 await (dynamic) result!;
             }
 
-            _logger.LogInformation("Background task executed");
+            _logger.LogInformation(
+                "{MethodName} successfully executed",
+                options.MethodInfo.Name
+            );
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error while executing background task");
+            _logger.LogError(
+                ex,
+                "Error while executing background task"
+            );
         }
     }
 }
