@@ -236,11 +236,13 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
                 _ => throw new InvalidOperationException("Method with parameters is not supported")
             };
 
-            var resultType = result?.GetType();
-
-            if (resultType?.Name == nameof(Task) || resultType?.Name == typeof(Task<>).Name)
+            try
             {
                 await (dynamic) result!;
+            }
+            catch (Exception)
+            {
+                // ignored
             }
 
             _logger.LogInformation(
