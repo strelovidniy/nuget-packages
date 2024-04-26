@@ -2,6 +2,7 @@ using System.Reflection;
 using BackgroundTaskExecutor.Constants;
 using BackgroundTaskExecutor.Context;
 using BackgroundTaskExecutor.Entities;
+using BackgroundTaskExecutor.Enums;
 using BackgroundTaskExecutor.Settings;
 using BackgroundTaskExecutor.Types;
 using Microsoft.EntityFrameworkCore;
@@ -127,11 +128,27 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
             methodToRun.Value.Timer = new Timer(
                 _ => ExecuteTask(methodToRun.Key),
                 null,
-                TimeSpan.FromMinutes(methodToRun.Value.Settings.FirstRunAfterInMinutes),
+                CalculateTimeSpan(
+                    methodToRun.Value.Settings.FirstRunAfter,
+                    methodToRun.Value.Settings.FirstRunAfterTimeUnit
+                ),
                 TimeSpan.FromMilliseconds(-1)
             );
         }
     }
+
+    private static TimeSpan CalculateTimeSpan(
+        double value,
+        TimeUnit timeUnit
+    ) => timeUnit switch
+    {
+        TimeUnit.Millisecond => TimeSpan.FromMilliseconds(value),
+        TimeUnit.Second => TimeSpan.FromSeconds(value),
+        TimeUnit.Minute => TimeSpan.FromMinutes(value),
+        TimeUnit.Hour => TimeSpan.FromHours(value),
+        TimeUnit.Day => TimeSpan.FromDays(value),
+        _ => TimeSpan.FromMinutes(value)
+    };
 
     private void ExecuteTask(Guid id)
     {
@@ -159,7 +176,13 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
             _logger.LogCritical(new EventId(), exception, "Background task execution failed");
         }
 
-        options.Timer?.Change(TimeSpan.FromMinutes(options.Settings.IntervalInMinutes), TimeSpan.FromMilliseconds(-1));
+        options.Timer?.Change(
+            CalculateTimeSpan(
+                options.Settings.Interval,
+                options.Settings.IntervalTimeUnit
+            ),
+            TimeSpan.FromMilliseconds(-1)
+        );
     }
 
     private async Task RunJobAsync(
@@ -185,7 +208,11 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
             .FirstOrDefaultAsync(stoppingToken);
 
         if (syncEntry is not null
-            && DateTime.UtcNow - syncEntry.LastRun < TimeSpan.FromMinutes(options.Settings.IntervalInMinutes))
+            && DateTime.UtcNow - syncEntry.LastRun
+            < CalculateTimeSpan(
+                options.Settings.Interval,
+                options.Settings.IntervalTimeUnit
+            ))
         {
             _logger.LogInformation(
                 "Background task ({MethodName}) executed by another pod | Machine Name {MachineName}",

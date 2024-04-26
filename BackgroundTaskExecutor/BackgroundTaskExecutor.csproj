@@ -9,7 +9,7 @@
 		<PackageId>BackgroundTaskExecutor</PackageId>
 		<RootNamespace>BackgroundTaskExecutor</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>8.0.2</Version>
+		<Version>8.1.0</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>BackgroundTaskExecutor</Title>
 		<PackageTags>Backhround; Task; Executor; Hangfire; ASP; NetCore; .Net; Core; Service; Hosted</PackageTags>
@@ -18,7 +18,7 @@
 		</Description>
 		<PackageIcon>PackageLogo.png</PackageIcon>
 		<PackageReleaseNotes>
-			Fixed awaitable methods awaiting bug
+			Changed Configuration, now you can specify time units for background execution
 		</PackageReleaseNotes>
 		<GeneratePackageOnBuild>
 			true

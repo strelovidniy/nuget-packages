@@ -8,15 +8,17 @@
  4. Add section to your appsettings.json
 
 > "BackgroundTaskExecutor": {
->  &nbsp;&nbsp;&nbsp;&nbsp;"Profiles": {
->  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{profileName}": {
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"IntervalInMinutes": {intervalInMinute},
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"FirstRunAfterInMinutes": {delayInMinute}
+> &nbsp;&nbsp;&nbsp;&nbsp;"Profiles": {
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{profileName}": {
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Interval": {interval},
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"IntervalTimeUnit": {"Millisecond" | "Second" | "Minute" | "Hour" | "Day" },
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"FirstRunAfter": {delay},
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"FirstRunAfterTimeUnit": {"Millisecond" | "Second" | "Minute" | "Hour" | "Day" },
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 > &nbsp;&nbsp;&nbsp;&nbsp;} 
 > }
 
-*You can override Default profile as well*
+*You can override Default profile as well both defining profile with name "Default" or define necessary parameters in "BackgroundTaskExecutor" section*
 
 ## Usage
 
