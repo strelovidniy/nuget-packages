@@ -15,10 +15,10 @@ namespace BackgroundTaskExecutor.Services;
 internal class BackgroundTaskExecutorService : IHostedService, IDisposable
 {
     private readonly ILogger _logger;
-    private readonly IServiceProvider _services;
-    private readonly CancellationTokenSource _stoppingCts = new();
-    private readonly IExecutorSettings _settings;
     private readonly Dictionary<Guid, ExecutionOptions> _methodsToRun = [];
+    private readonly IServiceProvider _services;
+    private readonly IExecutorSettings _settings;
+    private readonly CancellationTokenSource _stoppingCts = new();
 
     public BackgroundTaskExecutorService(IServiceProvider services)
     {
@@ -103,7 +103,8 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
                 {
                     MethodInfo = methodInfo,
                     ParentType = typeMethods.Type,
-                    Settings = methodSettings
+                    Settings = methodSettings,
+                    Profile = profileName
                 });
             }
         }
@@ -117,8 +118,17 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
 
         var bgContext = scope.ServiceProvider.GetRequiredService<BackgroundContext>();
 
-        await bgContext.Database.MigrateAsync(cancellationToken);
-        await bgContext.Database.EnsureCreatedAsync(cancellationToken);
+        try
+        {
+            await bgContext.Database.MigrateAsync(cancellationToken);
+            await bgContext.Database.EnsureCreatedAsync(cancellationToken);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
+        }
     }
 
     private void StartTimers()
@@ -265,7 +275,7 @@ internal class BackgroundTaskExecutorService : IHostedService, IDisposable
 
             try
             {
-                await (dynamic) result!;
+                await (dynamic)result!;
             }
             catch (Exception)
             {
