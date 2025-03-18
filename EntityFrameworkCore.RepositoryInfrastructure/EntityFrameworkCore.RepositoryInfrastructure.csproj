@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.3" />
 	</ItemGroup>
 
 	<PropertyGroup>
@@ -14,19 +14,19 @@
 		<PackageId>EntityFrameworkCore.RepositoryInfrastructure</PackageId>
 		<RootNamespace>EntityFrameworkCore.RepositoryInfrastructure</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>9.0.0</Version>
+		<Version>9.0.3</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>EntityFrameworkCore.RepositoryInfrastructure</Title>
 		<PackageTags>EF; Core; Repository; Pattern; Infrastructure; Entity; Framework;</PackageTags>
 		<Description>Repository Pattern for EF Core.</Description>
 		<PackageIcon>PackageLogo.png</PackageIcon>
-		<PackageReleaseNotes>Updated ещ юyoto .Net 9</PackageReleaseNotes>
+		<PackageReleaseNotes>Updated dependencies</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/strelovidniy/nuget-packages</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/strelovidniy/nuget-packages.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Copyright>Copyright © Roman Danylevych 2024</Copyright>
+		<Copyright>Copyright © Roman Danylevych 2025</Copyright>
 	</PropertyGroup>
 
 	<ItemGroup>

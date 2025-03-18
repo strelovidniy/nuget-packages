@@ -9,7 +9,7 @@
 		<PackageId>BackgroundTaskExecutor</PackageId>
 		<RootNamespace>BackgroundTaskExecutor</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>9.0.0</Version>
+		<Version>9.0.3</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>BackgroundTaskExecutor</Title>
 		<PackageTags>Backhround; Task; Executor; Hangfire; ASP; NetCore; .Net; Core; Service; Hosted</PackageTags>
@@ -18,7 +18,7 @@
 		</Description>
 		<PackageIcon>PackageLogo.png</PackageIcon>
 		<PackageReleaseNotes>
-			Fixed naming, ignored naming conventions and corrected Profile in DB records
+			Updated dependencies
 		</PackageReleaseNotes>
 		<GeneratePackageOnBuild>
 			true
@@ -42,15 +42,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.3" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.3" />
 	</ItemGroup>
 
 </Project>
