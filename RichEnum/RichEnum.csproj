@@ -4,18 +4,19 @@
 		<OutputType>Library</OutputType>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
+		<IsPackable>true</IsPackable>
 		<AssemblyName>RichEnum</AssemblyName>
 		<PackageId>RichEnum</PackageId>
 		<RootNamespace>RichEnum</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>9.0.0</Version>
+		<Version>10.0.0</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>RichEnum</Title>
 		<PackageTags>Rich; Enum; Enums; RichEnums; RichEnum; Advandecd; AdvancedEnum; AdvancedEnums; Extended; ExtendedEnuml; ExtendedEnums;</PackageTags> 
 		<Description>RichEnum is a library that provides a set of advanced features for working with enums.</Description>
 		<PackageIcon>PackageLogo.png</PackageIcon>
-		<PackageReleaseNotes>Updated to EF Core 9</PackageReleaseNotes>
+		<PackageReleaseNotes>Updated to .Net 10</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/strelovidniy/nuget-packages</PackageProjectUrl>
