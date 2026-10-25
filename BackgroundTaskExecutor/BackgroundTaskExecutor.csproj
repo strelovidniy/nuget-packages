@@ -10,7 +10,7 @@
 		<PackageId>BackgroundTaskExecutor</PackageId>
 		<RootNamespace>BackgroundTaskExecutor</RootNamespace>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>10.0.3</Version>
+		<Version>10.0.13</Version>
 		<Authors>Roman Danylevych</Authors>
 		<Title>BackgroundTaskExecutor</Title>
 		<PackageTags>Backhround; Task; Executor; Hangfire; ASP; NetCore; .Net; Core; Service; Hosted</PackageTags>
@@ -28,7 +28,7 @@
 		<PackageProjectUrl>https://github.com/strelovidniy/nuget-packages</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/strelovidniy/nuget-packages.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Copyright>Copyright © Roman Danylevych 2024</Copyright>
+		<Copyright>Copyright © Roman Danylevych 2026</Copyright>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -43,15 +43,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.3" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.3" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.3" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.3">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.13" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.13" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.13" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.13" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.13">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.13" />
 	</ItemGroup>
 
 </Project>
