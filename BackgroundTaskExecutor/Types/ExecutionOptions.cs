@@ -17,4 +17,10 @@ internal class ExecutionOptions
     public Task? ExecutingTask { get; set; }
 
     public string Profile { get; set; } = Profiles.Default;
+
+    // The job's identity among every instance: its type, its method and its profile. Two jobs that share only a
+    // method name are two leases.
+    public Guid LeaseId { get; set; }
+
+    public string LeaseName { get; set; } = null!;
 }
